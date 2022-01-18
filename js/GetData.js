@@ -8,3 +8,4 @@ export const homeData=async ()=>{
     data=await data.json()
     return data;
 }
+   
