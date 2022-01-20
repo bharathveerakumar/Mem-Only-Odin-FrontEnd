@@ -1,5 +1,4 @@
 import { homeData } from './GetData.js'
-import { loginPost } from './PostData.js'
 
 const navBar=document.querySelector('nav')
 const body=document.querySelector('body')
@@ -62,3 +61,17 @@ function memRender(){
     })
     msgCont.appendChild(msgBox)
 }
+
+const msgbox=document.querySelectorAll('.msgbox')
+
+msgbox.forEach((e)=>{
+    if(e.offsetTop<scrollY+window.innerHeight) e.classList.add('tr')
+    else e.classList.remove('tr')
+})
+
+document.addEventListener('scroll', (ev)=>{
+    msgbox.forEach((e)=>{
+        if(e.offsetTop<scrollY+window.innerHeight-50&&e.offsetTop>scrollY-50) e.classList.add('tr')
+        else e.classList.remove('tr')
+    })
+})

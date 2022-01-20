@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/bubble.jpg');
+    background-size: cover;
+}
+
+.registerform{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 65%;
+    min-width: 350px;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.445);
+    backdrop-filter: blur(3px);
+    border-radius: 20px;
+}
+
+.inputfield{
+    width: 50%;
+    min-width: 300px;
+    height: 50px;
+    position: relative;
+}
+
+.inputfield input, .inputfield label{
+    position: absolute;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.inputfield label{
+    pointer-events: none;
+    padding: 0;
+    top: 15px;
+    left: 15px;
+    transition: .5s;
+}
+
+input{
+    outline: none;
+    border-radius: 15px;
+}
+
+.inputfield input:focus ~ label{
+    top: -20px;
+    font-size: 15px;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+.inputRow{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 60%;
+}
+
+button{
+    font-size: 20px;
+    padding: 10px 45px;
+    border: none;
+    background-color: rgba(90, 175, 255, 0.753);
+    border-radius: 12px;
+}
+
+#inputlogo input{
+    width: 20px;
+    height: 20px;
+    transition: .5s;
+}
+
+#inputlogo input:checked{
+    width: 30px;
+    height: 30px;
+    padding: none;
+}
