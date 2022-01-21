@@ -4,10 +4,11 @@ const register='http://localhost:5000/register'
 
 
 export const homeData=async ()=>{
-    let token=document.cookie.token
-    console.log(token)
     let data=await fetch(home,{
-        'headers':`${ token }`
+        method:"GET",
+        headers:{
+            'authorization':`${document.cookie.split('=')[1]}`
+        }
     })
     data=await data.json()
     return data;

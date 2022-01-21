@@ -20,11 +20,11 @@ else{
     memLink.innerHTML='Member', memLink.setAttribute('href', 'member.html')
     const adminLink=document.createElement('a')
     adminLink.innerHTML='Admin', adminLink.setAttribute('href', 'admin.html')
-    if(hData.user.status=='IN'){
+    if(hData.user.user[0].status=='IN'){
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
         msgRender()
-    }
-    else if(hData.user.status=='MEMBER'){
+    }   
+    else if(hData.user.user[0].status=='MEMBER'){
         navBar.appendChild(adminLink);
         memRender();
     }
@@ -43,7 +43,7 @@ function msgRender(){
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title"><h2>${ e.title }<h2></div>
                             <div class="content"><p>${ e.body }</p></div>
-                            <div class="da"><i>Unknown</i><i>${ e.date.slice(0, 10) }</i></div>`
+                            <div class="da"><i>Unknown</i><i>${ e.date }</i></div>`
         msgCont.appendChild(msgBox)
     })
 }

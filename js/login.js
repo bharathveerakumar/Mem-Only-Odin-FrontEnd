@@ -20,7 +20,7 @@ btn.addEventListener('click', async (e)=>{
             err.style.display='block';
         })
         if(loginRes){
-            document.cookie=`token=${ loginRes.token }`;
+            document.cookie=`token=${ loginRes.token }=`;
             window.location.href='http://127.0.0.1:5500/index.html'
         }
     }
