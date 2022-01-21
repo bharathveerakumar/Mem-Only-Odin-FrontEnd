@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Courier New', Courier;
 }
 
 a{
@@ -10,20 +10,20 @@ a{
     text-decoration: none;
     font-weight: bolder;
     color: rgb(255, 255, 255);
-    width: 70px;
-    height: 70%;
-    padding-top: 15px;
-    overflow: hidden;
-
+    padding: 10px;
+    font-size: 23px;
 }
 
 a::before{
     content: '';
     position: absolute;
-    top: 95%;
-    background-color: black;
-    width: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0%;
     height: 100%;
+    border-bottom: 3px solid black;
     transition: all .5s;
 }
 
@@ -33,7 +33,7 @@ a:hover::before{
 
 body{
     width: 100%;
-    background-image: url('../assets/bubbles1.jpg');
+    background-image: url('../assets/bubbles1.png');
     background-size: cover;
     background-attachment: fixed;
 }
@@ -48,7 +48,7 @@ body::-webkit-scrollbar-track{
 
 body::-webkit-scrollbar-thumb{
     width: 15px;
-    background-color: rgba(4, 255, 255, 0.89);
+    background-color: rgba(8, 4, 255, 0.89);
     border-radius: 10px;
     backdrop-filter: blur(10px);
 }
@@ -56,20 +56,22 @@ body::-webkit-scrollbar-thumb{
 nav{
     padding: 15px 5%;
     width: 100%;
-    height: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     backdrop-filter: blur(10px);
-    background-color: rgba(69, 216, 253, 0.404);
     box-shadow: 1px 5px 20px 1px black;
     position: sticky;
     top: 0;
     color: black;
     z-index: 1;
-    border-radius: 20px;
+}
+
+nav img{
+    width: 50px;
+    height: 50px;
 }
 
 .msg{
@@ -117,19 +119,20 @@ nav{
     letter-spacing: 3px;
     font-weight: bolder;    
     transition: all .5s;
-    height: 100%;
-    padding-top: 12px;
-    color: white;
-    overflow: hidden;
+    padding-left: 20px;
+    cursor: pointer;
 }
 
 .title1::before{
     content: "";
     position: absolute;
-    top: 95%;
+    top: 0;
+    left: 20px;
+    bottom: 0;
+    right: 0;
     width: 0;
     height: 100%;
-    background-color: black;
+    border-bottom: 3px solid rgb(0, 255, 255);
     transition: .5s;
 }
 
@@ -139,14 +142,21 @@ nav{
 
 .title1:hover{
     transform: scale(1.04, 1.04);
-    color: black;
+    color: rgb(0, 255, 255);
+}
+
+.titlecont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 .content{
     width: 70%;
     text-align: justify;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.616);
+    background-color: rgba(177, 210, 255, 0.616);
     color: black;
     border-radius: 20px;
     margin-top: 20px;
@@ -159,4 +169,15 @@ nav{
     align-items: center;
     justify-content: space-evenly;
     margin-top: 20px;
+}
+
+
+@media screen and (max-width:700px){
+    .title1{
+        font-size: 21px;
+    }
+    nav img{
+        width: 30px;
+        height: 30px;
+    }
 }

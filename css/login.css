@@ -71,7 +71,6 @@ label{
     top: 15px;
     left: 10px;
     width: 100%;
-    z-index: 1;
     pointer-events: none;
     transition: .5s;
 }
@@ -88,4 +87,12 @@ button{
     border: none;
     background-color: rgba(90, 175, 255, 0.753);
     border-radius: 12px;
+}
+
+.error{
+    display: none;
+    color: red;
+    font-size: 23px;
+    padding: 5px;
+    border-bottom: 1px solid red;
 }
