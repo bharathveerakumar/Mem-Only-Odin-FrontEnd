@@ -16,7 +16,6 @@ export const loginPost=async (username, password)=>{
 }
 
 export const regPost=async (body)=>{
-    console.log(body)
     let register=await fetch('http://localhost:5000/register', {
         method:'POST',
         headers:{
@@ -32,4 +31,15 @@ export const regPost=async (body)=>{
     })
     register=await register.json()
     return register
+}
+
+export const messPost=async (body)=>{
+    const mesPost=await fetch('http://127.0.0.1:5500/post', {
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+            "authorization":`${ document.cookie.split('=')[1] }`
+        },
+        body:JSON.stringify(body)
+    })
 }

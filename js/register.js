@@ -18,13 +18,37 @@ input.forEach((e)=>{
 
 
 button.addEventListener('click', async (e)=>{
-    const body={
-        "username":username.value,
-        "nickname":nickname.value,
-        "password":password.value,
-        "cpassword":cpassword.value,
-        "logo":document.querySelector('input[name="icon"]:checked').value
-    }
-    const regData=await regPost(body);
     const errors=document.createElement('div')
+    errors.className='errors';
+
+    const checked=document.querySelector('input[name="icon"]:checked');
+    let regData;
+    if(checked){
+        const body={
+            "username":username.value,
+            "nickname":nickname.value,
+            "password":password.value,
+            "cpassword":cpassword.value,
+            "logo":checked.value
+        }
+        regData=await regPost(body);
+        if(regData.error!="success"){
+            regData.error.forEach((e)=>{
+                errors.innerHTML+=`<p>${e.msg}</p>`
+            })
+        }
+    }
+    else errors.innerHTML+='<p>Please Fill all the details!!!</p>', regData={'error':'failed'};
+
+    if(regData.error=='success') window.location.href='http://127.0.0.1:5500/login.html'
+
+    regForm.appendChild(errors)
+    timeOut();
 })
+
+
+function timeOut(){
+    setTimeout(()=>{
+        regForm.removeChild(regForm.lastElementChild)
+    }, 3000);
+}

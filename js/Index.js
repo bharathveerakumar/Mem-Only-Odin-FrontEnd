@@ -1,13 +1,23 @@
 import { homeData } from './GetData.js'
+import { messPost } from './PostData.js'
 
 const navBar=document.querySelector('nav')
-const body=document.querySelector('body')
 const msgCont=document.querySelector('.msg')
+const post=document.querySelector('.post')
+const input=document.querySelectorAll('.inp')
+const submit=document.querySelector('.submit')
 
 
 //Getting Data for Home page
 const hData=await homeData()
 
+
+input.forEach((e)=>{
+    e.addEventListener('change', ()=>{
+        if(e.value.length) e.style.zIndex=2;
+        else e.style.zIndex=0;
+    })
+})
 
 //Rendering and Checking the user account status for rendering the data according to it
 if(hData.user=="not"){
@@ -76,3 +86,20 @@ document.addEventListener('scroll', (ev)=>{
         else e.classList.remove('tr')
     })
 })
+
+
+const button=document.querySelector('button')
+
+button.addEventListener('click', ()=>{
+    post.classList.toggle('active')
+})
+
+submit.addEventListener('click', ()=>{
+    const body={
+        "title":input[0].value,
+        "body":input[0].value
+    }  
+    messPost(body);
+})
+
+
