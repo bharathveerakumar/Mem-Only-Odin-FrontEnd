@@ -21,6 +21,7 @@ else{
     const adminLink=document.createElement('a')
     adminLink.innerHTML='Admin', adminLink.setAttribute('href', 'admin.html')
     if(hData.user.user[0].status=='IN'){
+        navBar.innerHTML+='<button>Post</button>'
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
         msgRender()
     }   
