@@ -1,5 +1,5 @@
 import { homeData } from './GetData.js'
-import { messPost } from './PostData.js'
+import { messPost, memPost } from './PostData.js'
 
 const navBar=document.querySelector('nav')
 const msgCont=document.querySelector('.msg')
@@ -102,4 +102,4 @@ submit.addEventListener('click', ()=>{
     messPost(body);
 })
 
-
+memPost('member')

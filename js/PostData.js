@@ -34,12 +34,31 @@ export const regPost=async (body)=>{
 }
 
 export const messPost=async (body)=>{
-    const mesPost=await fetch('http://127.0.0.1:5500/post', {
+    let mesPost=await fetch('http://localhost:5000/post', {
         method:"POST",
         headers:{
             "Content-Type":"application/json",
             "authorization":`${ document.cookie.split('=')[1] }`
         },
-        body:JSON.stringify(body)
+        body:JSON.stringify({
+            "title":body.title,
+            "body":body.body
+        })
     })
+    mesPost=await mesPost.json()
+}
+
+export const memPost=async (member)=>{
+    let memData=await fetch('http://localhost:5000/member', {
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'authorization':`${ document.cookie.split('=')[1] }`
+        },
+        body:JSON.stringify({
+            "member":member
+        })
+    })
+    memData=await memData.json() 
+    console.log(memData)
 }
