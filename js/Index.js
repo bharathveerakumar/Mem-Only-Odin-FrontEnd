@@ -23,7 +23,7 @@ input.forEach((e)=>{
 if(hData.user=="not"){
     const loginLink=document.createElement('a')
     loginLink.innerHTML='Login', loginLink.setAttribute('href', 'login.html')
-    navBar.appendChild(loginLink), msgRender(),msgRender(),msgRender(),msgRender(),msgRender(),msgRender()
+    navBar.appendChild(loginLink), msgRender()
 }
 else{
     const memLink=document.createElement('a')
@@ -36,6 +36,7 @@ else{
         msgRender()
     }   
     else if(hData.user.user[0].status=='MEMBER'){
+        navBar.innerHTML+='<button>Post</button>'
         navBar.appendChild(adminLink);
         memRender();
     }
@@ -62,15 +63,15 @@ function msgRender(){
 
 function memRender(){
     const msgs=hData.result;
-    const msgBox=document.createElement('div')
-    msgBox.className='msgbox';
+    console.log(hData)
     msgs.forEach((e)=>{
+        const msgBox=document.createElement('div')
+        msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title">${ e.title }</div>
-                            <div class="content"><p>${ e.body }</p></div>
-                            <div class="da"><h3>${ e.user_info.nickname }</h3><h3>${ e.date.slice(0, 10) }</h3></div>`
+                            <div class="content">${ e.body }</div>
+                            <div class="da"><h3>${ e.user_info[0].nickname }</h3><h3>${ e.date }</h3></div>`
         msgCont.appendChild(msgBox)
     })
-    msgCont.appendChild(msgBox)
 }
 
 const msgbox=document.querySelectorAll('.msgbox')
@@ -97,9 +98,10 @@ button.addEventListener('click', ()=>{
 submit.addEventListener('click', ()=>{
     const body={
         "title":input[0].value,
-        "body":input[0].value
+        "body":input[1].value
     }  
     messPost(body);
+    post.classList.remove('active')
 })
 
-memPost('member')
+// memPost('member')

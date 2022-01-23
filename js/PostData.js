@@ -6,6 +6,7 @@ export const loginPost=async (username, password)=>{
         headers:{
             'Content-Type':'application/json',
         },
+        credentials:'include',
         body:JSON.stringify({
             "username":username,
             "password":password
@@ -59,6 +60,6 @@ export const memPost=async (member)=>{
             "member":member
         })
     })
-    memData=await memData.json() 
-    console.log(memData)
+    memData=await memData.json()
+    document.cookie=`token=${memData.token}`
 }
