@@ -1,4 +1,4 @@
-import { homeData } from './GetData.js'
+import { homeData, adminUpdate } from './GetData.js'
 import { messPost, memPost } from './PostData.js'
 
 const navBar=document.querySelector('nav')
@@ -30,12 +30,12 @@ else{
     memLink.innerHTML='Member', memLink.setAttribute('href', 'member.html')
     const adminLink=document.createElement('a')
     adminLink.innerHTML='Admin', adminLink.setAttribute('href', 'admin.html')
-    if(hData.user.user[0].status=='IN'){
+    if(hData.user.status=='IN'){
         navBar.innerHTML+='<button>Post</button>'
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
         msgRender()
     }   
-    else if(hData.user.user[0].status=='MEMBER'){
+    else if(hData.user.status=='MEMBER'){
         navBar.innerHTML+='<button>Post</button>'
         navBar.appendChild(adminLink);
         memRender();
@@ -102,6 +102,8 @@ submit.addEventListener('click', ()=>{
     }  
     messPost(body);
     post.classList.remove('active')
+    window.location.href='http://127.0.0.1:5500/index.html'
 })
 
 // memPost('member')
+adminUpdate()

@@ -86,6 +86,7 @@ nav img{
 .msg{
     width: 100%;
     display: flex;
+    height: auto;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
@@ -163,7 +164,7 @@ nav img{
 
 .content{
     width: 70%;
-    height: auto;
+    height: 150px;
     padding: 20px;
     background-color: rgba(177, 210, 255, 0.616);
     color: black;
