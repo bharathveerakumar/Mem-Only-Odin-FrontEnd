@@ -63,3 +63,26 @@ export const memPost=async (member)=>{
     memData=await memData.json()
     document.cookie=`token=${memData.token}`
 }
+
+
+export const updatePost=async (body)=>{ 
+    let updateRes=await fetch('http://localhost:5000/update', {
+        method:'POST',
+        headers:{
+            'authorization':`${ document.cookie.split('=')[1] }`,
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(body)
+    })
+}
+
+export const deletePost=async (id)=>{
+    let deleteRes=await fetch('http://localhost:5000/delete', {
+        method:'POST',
+        headers:{
+            'authorization':`${ document.cookie.split('=')[1] }`,
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({ _id:id })
+    })
+}
