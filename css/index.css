@@ -273,6 +273,36 @@ textarea:focus~label{
     background-color: blue;
 }
 
+.upgrade{
+    position: absolute;
+    top: 200px;
+    left: 35%;
+    background-color: rgba(0, 0, 255, 0.527);
+    width: 400px;
+    height: 250px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 15px;
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+}
+
+.upgradeFlex{
+    display: flex;
+}
+
+.upgrade label{
+    font-size: 20px;
+    width: 100%;
+}
+
+.upgrade input:focus~label{
+    font-size: 16px;
+    color: white;
+}
+
 @media screen and (max-width:700px){
     .title1{
         font-size: 21px;

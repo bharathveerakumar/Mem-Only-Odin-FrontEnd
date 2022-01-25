@@ -61,7 +61,7 @@ export const memPost=async (member)=>{
         })
     })
     memData=await memData.json()
-    document.cookie=`token=${memData.token}`
+    return memData;
 }
 
 
@@ -85,4 +85,17 @@ export const deletePost=async (id)=>{
         },
         body:JSON.stringify({ _id:id })
     })
+}
+
+export const adminPost=async (admin)=>{
+    let adminRes=await fetch('http://localhost:5000/adminLogin', {
+        method:'POST',
+        headers:{
+            'authorization':`${ document.cookie.split('=')[1] }`,
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify({ admin:admin })
+    })
+    adminRes=await adminRes.json();
+    return adminRes;
 }

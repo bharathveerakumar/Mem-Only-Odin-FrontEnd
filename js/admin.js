@@ -3,10 +3,14 @@ import { updatePost, deletePost } from "./PostData.js";
 
 const content=document.querySelector('.content'),
 updateBox=document.querySelector('.updateBox'),
-inputs=document.querySelectorAll('.j')
+inputs=document.querySelectorAll('.j'),
+navBar=document.querySelector('nav')
 
 // Getting the Admin Data of users...
 const adminDat=await adminData();
+console.log(adminDat)
+
+navBar.innerHTML+=`<h2 class="userTitle">${ adminDat.user.nickname }</h2>`
 
 adminDat.result.forEach((e)=>{
     e.posts.forEach((e1)=>{
