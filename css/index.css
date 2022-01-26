@@ -105,7 +105,8 @@ nav img{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
     border-radius: 20px;
     transition: all .5s;
     background-color: rgba(255, 255, 255, 0.548);
@@ -301,6 +302,17 @@ textarea:focus~label{
 .upgrade input:focus~label{
     font-size: 16px;
     color: white;
+}
+
+.errorMesm, .errorMesa{
+    display: block;
+    color: red;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.rem{
+    display: none;
 }
 
 @media screen and (max-width:700px){

@@ -8,7 +8,13 @@ navBar=document.querySelector('nav')
 
 // Getting the Admin Data of users...
 const adminDat=await adminData();
-console.log(adminDat)
+
+if(!adminDat.error) window.location.href='http://127.0.0.1:5500/index.html'
+
+document.querySelector('.titlecont').addEventListener('click', ()=>{
+    console.log(1)
+    window.location.href='http://127.0.0.1:5500/index.html';
+})
 
 navBar.innerHTML+=`<h2 class="userTitle">${ adminDat.user.nickname }</h2>`
 

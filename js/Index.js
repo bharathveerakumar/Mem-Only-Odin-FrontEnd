@@ -4,8 +4,10 @@ import { messPost, memPost, adminPost } from './PostData.js'
 const navBar=document.querySelector('nav')
 const msgCont=document.querySelector('.msg')
 const post=document.querySelector('.post')
-const input=document.querySelectorAll('.inp')
-const submit=document.querySelector('.submit')
+const input=document.querySelectorAll('input')
+const submit=document.querySelector('.submit'),
+upgrade=document.querySelectorAll('.upgrade');
+
 
 
 //Getting Data for Home page
@@ -33,10 +35,19 @@ else{
 
     if(hData.user.status=='IN'){
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
+        memLink.addEventListener('click', ()=>{
+            upgrade[0].classList.toggle('upgradeFlex')
+        });
+        adminLink.addEventListener('click', ()=>{
+            upgrade[1].classList.toggle('upgradeFlex')
+        });
         msgRender();
     }   
     else if(hData.user.status=='MEMBER'){
         navBar.appendChild(adminLink);
+        adminLink.addEventListener('click', ()=>{
+            upgrade[1].classList.toggle('upgradeFlex')
+        });
         memRender();
     }
     else{
@@ -94,10 +105,9 @@ document.addEventListener('scroll', (ev)=>{
 
 // post button
 const button=document.querySelector('button'),
-upgrade=document.querySelectorAll('.upgrade'),
-memLink=document.querySelector('.memLink'),
-adminLink=document.querySelector('.adminLink'),
-uInput=document.querySelectorAll('.upgrade input')
+uInput=document.querySelectorAll('.upgrade input'),
+mError=document.querySelector('.errorMesm'),
+aError=document.querySelector('.errorMesa')
 
 
 //post form...
@@ -116,21 +126,25 @@ submit.addEventListener('click', ()=>{
     window.location.href='http://127.0.0.1:5500/index.html'
 })
 
-//members login
-memLink.addEventListener('click', ()=>{
-    upgrade[0].classList.toggle('upgradeFlex')
-})
 
-adminLink.addEventListener('click', ()=>{
-    upgrade[1].classList.toggle('upgradeFlex')
-})
-
+//member submit
 document.querySelector('.mSubmit').addEventListener('click', async ()=>{
     let adminRes=await memPost(uInput[0].value)
     console.log(adminRes)
+    if(adminRes.error) window.location.href='http://127.0.0.1:5500/index.html';
+    else{
+        console.log(mError)
+        mError.classList.remove('rem')
+        setTimeout(()=>mError.classList.add('rem'), 4000);
+    }
 })
 
+//admin submit
 document.querySelector('.aSubmit').addEventListener('click', async ()=>{
     let adminRes=await adminPost(uInput[1].value)
-    console.log(adminRes)
+    if(adminRes.error) window.location.href='http://127.0.0.1:5500/index.html';
+    else{
+        aError.classList.remove('rem')
+        setTimeout(()=>aError.classList.add('rem'), 4000);
+    }
 })
