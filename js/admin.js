@@ -6,17 +6,17 @@ updateBox=document.querySelector('.updateBox'),
 inputs=document.querySelectorAll('.j'),
 navBar=document.querySelector('nav')
 
+
 // Getting the Admin Data of users...
 const adminDat=await adminData();
 
 if(!adminDat.error) window.location.href='http://127.0.0.1:5500/index.html'
 
-document.querySelector('.titlecont').addEventListener('click', ()=>{
-    console.log(1)
+navBar.addEventListener('click', ()=>{
     window.location.href='http://127.0.0.1:5500/index.html';
 })
 
-navBar.innerHTML+=`<h2 class="userTitle">${ adminDat.user.nickname }</h2>`
+navBar.innerHTML+=`<h2 class="userTitle">Hi <u>${ adminDat.user.nickname }</u></h2>`
 
 adminDat.result.forEach((e)=>{
     e.posts.forEach((e1)=>{
@@ -27,7 +27,7 @@ adminDat.result.forEach((e)=>{
             <div class="update">
                 <button class="delete" data-id="${ e1._id }">Delete</button>
                 <button class="updateb" data-id="${ e1._id }">Update</button>
-                <h4>${ e1.date.split('T')[0] }</h4>
+                <h4 class="date">${ e1.date.split('T')[0] }</h4>
             </div>
         </div>`
     })

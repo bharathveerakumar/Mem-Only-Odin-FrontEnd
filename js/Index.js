@@ -4,9 +4,10 @@ import { messPost, memPost, adminPost } from './PostData.js'
 const navBar=document.querySelector('nav')
 const msgCont=document.querySelector('.msg')
 const post=document.querySelector('.post')
-const input=document.querySelectorAll('input')
+const input=document.querySelectorAll('.inp')
 const submit=document.querySelector('.submit'),
-upgrade=document.querySelectorAll('.upgrade');
+upgrade=document.querySelectorAll('.upgrade'),
+inputs=document.querySelectorAll('input')
 
 
 
@@ -14,6 +15,13 @@ upgrade=document.querySelectorAll('.upgrade');
 const hData=await homeData()
 
 input.forEach((e)=>{
+    e.addEventListener('change', ()=>{
+        if(e.value.length) e.style.zIndex=2;
+        else e.style.zIndex=0;
+    })
+})
+
+inputs.forEach((e)=>{
     e.addEventListener('change', ()=>{
         if(e.value.length) e.style.zIndex=2;
         else e.style.zIndex=0;
@@ -36,9 +44,11 @@ else{
     if(hData.user.status=='IN'){
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
         memLink.addEventListener('click', ()=>{
+            upgrade[0].style.top=`${scrollY+150}px`
             upgrade[0].classList.toggle('upgradeFlex')
         });
         adminLink.addEventListener('click', ()=>{
+            upgrade[1].style.top=`${scrollY+150}px`
             upgrade[1].classList.toggle('upgradeFlex')
         });
         msgRender();
@@ -52,7 +62,7 @@ else{
     }
     else{
         const adminMenu=document.createElement('a');
-        adminMenu.innerHTML='adminmenu', adminMenu.setAttribute('href', 'admin.html')
+        adminMenu.innerHTML='Admin menu', adminMenu.setAttribute('href', 'admin.html')
         navBar.appendChild(adminMenu)
         memRender();
     }
@@ -67,7 +77,7 @@ function msgRender(){
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title"><h2>${ e.title }<h2></div>
                             <div class="content"><p>${ e.body }</p></div>
-                            <div class="da"><i>Unknown</i><i>${ e.date }</i></div>`
+                            <div class="da"><i>Unknown</i><i>${ e.date.split('T')[0] }</i></div>`
         msgCont.appendChild(msgBox)
     })
 }
@@ -80,7 +90,7 @@ function memRender(){
         const msgBox=document.createElement('div')
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title">${ e.title }</div>
-                            <div class="content">${ e.body }</div>
+                            <div class="content"> ${ e.body } </div>
                             <div class="da"><h3>${ e.user_info[0].nickname }</h3><h3>${ e.date }</h3></div>`
         msgCont.appendChild(msgBox)
     })
@@ -97,7 +107,7 @@ msgbox.forEach((e)=>{
 
 document.addEventListener('scroll', (ev)=>{
     msgbox.forEach((e)=>{
-        if(e.offsetTop<scrollY+window.innerHeight-50&&e.offsetTop>scrollY-50) e.classList.add('tr')
+        if(e.offsetTop<scrollY+window.innerHeight-50&&e.offsetTop>scrollY-700) e.classList.add('tr')
         else e.classList.remove('tr')
     })
 })
@@ -112,11 +122,13 @@ aError=document.querySelector('.errorMesa')
 
 //post form...
 button.addEventListener('click', ()=>{
+    post.style.top=`${ scrollY+100 }px`
     post.classList.toggle('active')
 })
 
 //sending content to the server for posting a message...
 submit.addEventListener('click', ()=>{
+    console.log(input[1].value)
     const body={
         "title":input[0].value,
         "body":input[1].value
