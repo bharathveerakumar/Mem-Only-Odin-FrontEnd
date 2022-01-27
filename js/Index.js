@@ -11,7 +11,6 @@ inputs=document.querySelectorAll('input'),
 loader=document.querySelector('.loader')
 
 
-
 //Getting Data for Home page
 const hData=await homeData()
 loader.style.display='none'

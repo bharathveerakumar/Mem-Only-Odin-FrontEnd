@@ -22,7 +22,8 @@ btn.addEventListener('click', async (e)=>{
             err.style.display='block';
         })
         if(loginRes){
-            document.cookie=`token=${ loginRes.token }`
+            let now=new Date;
+            document.cookie=`token=${ loginRes.token }; expires=${now.getTime()+1000*60}`
             window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
         }
     }
