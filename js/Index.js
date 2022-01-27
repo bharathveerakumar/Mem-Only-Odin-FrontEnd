@@ -8,7 +8,8 @@ const input=document.querySelectorAll('.inp')
 const submit=document.querySelector('.submit'),
 upgrade=document.querySelectorAll('.upgrade'),
 inputs=document.querySelectorAll('input'),
-loader=document.querySelector('.loader')
+loader=document.querySelector('.loader'),
+img=document.querySelector('img')
 
 
 document.cookie="token="+document.cookie.split('=')[1]+";expires="+new Date(Date.now()+86400000).toUTCString();

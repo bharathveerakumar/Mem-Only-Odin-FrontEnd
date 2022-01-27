@@ -28,7 +28,7 @@ navBar.innerHTML+=`<h2 class="userTitle">Hi <u>${ adminDat.user.nickname }</u></
 adminDat.result.forEach((e)=>{
     e.posts.forEach((e1)=>{
         content.innerHTML+=`<div class="post">
-            <h2 class="user"><img src="../assets/${e.logo}.png">${ e.nickname }</h2> 
+            <h2 class="user"><img src="../assets/${e.logo}.jpeg">${ e.nickname }</h2> 
             <h3 class="postTitle">${ e1.title }</h3>
             <p>${ e1.body }</p>
             <div class="update">
