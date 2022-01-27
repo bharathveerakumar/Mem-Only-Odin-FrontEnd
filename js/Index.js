@@ -93,13 +93,13 @@ function msgRender(){
 // Rendering content for MEMBERS
 function memRender(){
     const msgs=hData.result;
-
+    console.log(msgs)
     msgs.forEach((e)=>{
         const msgBox=document.createElement('div')
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title">${ e.title }</div>
                             <div class="content"> ${ e.body } </div>
-                            <div class="da"><h3>${ e.user_info[0].nickname }</h3><h3>${ e.date.split('T')[0] }</h3></div>`
+                            <div class="da"><h3 class="dat"><img src="../assets/${ e.user_info[0].logo }.png">${ e.user_info[0].nickname }</h3><h3>${ e.date.split('T')[0] }</h3></div>`
         msgCont.appendChild(msgBox)
     })
 }

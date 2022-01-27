@@ -203,6 +203,11 @@ nav img{
     color: rgb(42, 33, 80);
 }
 
+.user img{
+    width: 40px;
+    height: 40px;
+}
+
 .post p, .post h3, .post h4, .post .update, .post button{
     margin-top: 15px;
     text-align: center;
