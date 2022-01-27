@@ -1,4 +1,4 @@
-const home='http://localhost:5000'
+const home='https://mem-only-odin-bvk.herokuapp.com/'
 
 
 export const homeData=async ()=>{
@@ -14,7 +14,7 @@ export const homeData=async ()=>{
  
 
 export const adminData=async ()=>{
-    let adminDat=await fetch('http://localhost:5000/admin', {
+    let adminDat=await fetch('https://mem-only-odin-bvk.herokuapp.com/admin', {
         method:'GET',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`

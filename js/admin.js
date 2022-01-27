@@ -4,11 +4,14 @@ import { updatePost, deletePost } from "./PostData.js";
 const content=document.querySelector('.content'),
 updateBox=document.querySelector('.updateBox'),
 inputs=document.querySelectorAll('.j'),
-navBar=document.querySelector('nav')
+navBar=document.querySelector('nav'),
+loader=document.querySelector('.loader')
 
 
+loader.style.display='flex'
 // Getting the Admin Data of users...
 const adminDat=await adminData();
+loader.style.display='none'
 
 
 if(!adminDat.error) window.location.href='http://127.0.0.1:5500/index.html'
@@ -44,6 +47,7 @@ document.querySelectorAll('.updateb').forEach((e)=>{
     e.addEventListener('click', ()=>{
         updateBox.classList.toggle('updateFlex')
         updateBox.style.top=`${ scrollY+130 }px`
+        loader.style.top=`${scrollY+80}px`
         setTimeout(()=>flag=!flag, 100), id=e.dataset['id']
     })
 })
@@ -56,6 +60,7 @@ document.querySelector('.updateS').addEventListener('click', async ()=>{
         title:document.querySelector('input').value,
         body:document.querySelector('textarea').value
     }
+    loader.style.display='flex'
     await updatePost(body)
     window.location.href='http://127.0.0.1:5500/admin.html'
 })

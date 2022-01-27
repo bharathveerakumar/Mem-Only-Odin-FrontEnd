@@ -98,3 +98,55 @@ button{
     padding: 5px;
     border-bottom: 1px solid red;
 }
+
+.loader{
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 55vw;
+    height: 65vh;
+    font-size: 35px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.596);
+    backdrop-filter: blur(10px);
+    font-weight: bolder;
+    z-index: 10;
+    min-width: 350px;
+    border-radius: 20px;
+    flex: 2;
+}
+
+.loaderCont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+@keyframes loader{
+    0%{
+        transform:scale(1, 1)
+    }
+    50%{
+        transform: scale(0.5, 0.5);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+
+.loader1, .loader2{
+    width: 5px;
+    height: 30px;
+    background-color: black;
+    animation-name: loader;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    margin-left: 8px;
+}
+
+.loader2{
+    animation-delay: 0.2s;
+}

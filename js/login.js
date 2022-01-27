@@ -6,6 +6,7 @@ const username=document.querySelector('.username')
 const password=document.querySelector('.password')
 const loginFrom=document.querySelector('.loginform')
 const err=document.querySelector('.error')
+const loader=document.querySelector('.loader')
 
 input.forEach((e)=>{
     e.addEventListener('change', (eve)=>{
@@ -16,6 +17,7 @@ input.forEach((e)=>{
 
 btn.addEventListener('click', async (e)=>{
     if(username.value.length&&password.value.length){
+        loader.style.display='flex'
         const loginRes=await loginPost(username.value, password.value).catch((e)=>{
             err.style.display='block';
         })

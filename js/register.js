@@ -6,7 +6,8 @@ password=document.querySelector('.p'),
 cpassword=document.querySelector('.cp'),
 input=document.querySelectorAll('input'),
 regForm=document.querySelector('.registerform'),
-button=document.querySelector('button')
+button=document.querySelector('button'),
+loader=document.querySelector('.loader')
 
 
 input.forEach((e)=>{
@@ -31,8 +32,10 @@ button.addEventListener('click', async (e)=>{
             "cpassword":cpassword.value,
             "logo":checked.value
         }
+        loader.style.display='flex'
         regData=await regPost(body);
         if(regData.error!="success"){
+            loader.style.display='none'
             regData.error.forEach((e)=>{
                 errors.innerHTML+=`<p>${e.msg}</p>`
             })

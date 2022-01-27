@@ -337,6 +337,47 @@ textarea:focus~label{
     display: none;
 }
 
+.loader{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    justify-content: space-evenly;
+    top: 300px;
+    width: 200px;
+    height: 100px;
+    font-size: 35px;
+    color: white;
+    font-weight: bolder;
+}
+
+@keyframes loader{
+    0%{
+        transform:scale(1, 1)
+    }
+    50%{
+        transform: scale(0.5, 0.5);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+
+.loader1, .loader2{
+    width: 5px;
+    height: 30px;
+    background-color: black;
+    animation-name: loader;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+}
+
+.loader2{
+    animation-delay: 0.2s;
+}
+
+
+
 @media screen and (max-width:700px){
     .title1{
         font-weight: bolder;

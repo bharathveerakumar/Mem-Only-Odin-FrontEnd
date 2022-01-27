@@ -7,12 +7,14 @@ const post=document.querySelector('.post')
 const input=document.querySelectorAll('.inp')
 const submit=document.querySelector('.submit'),
 upgrade=document.querySelectorAll('.upgrade'),
-inputs=document.querySelectorAll('input')
+inputs=document.querySelectorAll('input'),
+loader=document.querySelector('.loader')
 
 
 
 //Getting Data for Home page
 const hData=await homeData()
+loader.style.display='none'
 
 input.forEach((e)=>{
     e.addEventListener('change', ()=>{
@@ -133,12 +135,12 @@ button.addEventListener('click', ()=>{
 
 
 //sending content to the server for posting a message...
-submit.addEventListener('click', ()=>{
+submit.addEventListener('click', async ()=>{
     const body={
         "title":input[0].value,
         "body":input[1].value
     }  
-    messPost(body);
+    await messPost(body);
     post.classList.remove('active')
     window.location.href='http://127.0.0.1:5500/index.html'
 })
