@@ -43,7 +43,7 @@ button.addEventListener('click', async (e)=>{
     }
     else errors.innerHTML+='<p>Please Fill all the details!!!</p>', regData={'error':'failed'};
 
-    if(regData.error=='success') window.location.href='http://127.0.0.1:5500/login.html'
+    if(regData.error=='success') window.location.href='https://mem-only-odin-bvk.netlify.com/login.html'
 
     regForm.appendChild(errors)
     timeOut();
