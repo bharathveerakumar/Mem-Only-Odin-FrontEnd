@@ -11,7 +11,7 @@ inputs=document.querySelectorAll('input'),
 loader=document.querySelector('.loader')
 
 
-let now=new Date(Date.now()+3000)
+let now=new Date(Date.now()+3000).toUTCString()
 console.log(now)
 
 
