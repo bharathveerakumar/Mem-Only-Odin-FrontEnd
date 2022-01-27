@@ -14,11 +14,11 @@ const adminDat=await adminData();
 loader.style.display='none'
 
 
-if(!adminDat.error) window.location.href='http://127.0.0.1:5500/index.html'
+if(!adminDat.error) window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
 
 //Home page redirection...
 navBar.addEventListener('click', ()=>{
-    window.location.href='http://127.0.0.1:5500/index.html';
+    window.location.href='https://mem-only-odin-bvk.netlify.com/index.html';
 })
 
 navBar.innerHTML+=`<h2 class="userTitle">Hi <u>${ adminDat.user.nickname }</u></h2>`
@@ -62,7 +62,7 @@ document.querySelector('.updateS').addEventListener('click', async ()=>{
     }
     loader.style.display='flex'
     await updatePost(body)
-    window.location.href='http://127.0.0.1:5500/admin.html'
+    window.location.href='https://mem-only-odin-bvk.netlify.com/admin.html'
 })
 
 document.querySelector('.updateBox img').addEventListener('click', ()=>{
@@ -82,6 +82,6 @@ inputs.forEach((e)=>{
 document.querySelectorAll('.delete').forEach((e1)=>{
     e1.addEventListener('click', (e)=>{
         deletePost(e1.dataset['id'])
-        window.location.href='http://127.0.0.1:5500/admin.html'
+        window.location.href='https://mem-only-odin-bvk.netlify.com/admin.html'
     })
 })

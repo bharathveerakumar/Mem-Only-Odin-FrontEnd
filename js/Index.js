@@ -142,14 +142,14 @@ submit.addEventListener('click', async ()=>{
     }  
     await messPost(body);
     post.classList.remove('active')
-    window.location.href='http://127.0.0.1:5500/index.html'
+    window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
 })
 
 
 //member submit
 document.querySelector('.mSubmit').addEventListener('click', async ()=>{
     let adminRes=await memPost(uInput[0].value)
-    if(adminRes.error) window.location.href='http://127.0.0.1:5500/index.html';
+    if(adminRes.error) window.location.href='https://mem-only-odin-bvk.netlify.com/index.html';
     else{
         console.log(mError)
         mError.classList.remove('rem')
@@ -160,7 +160,7 @@ document.querySelector('.mSubmit').addEventListener('click', async ()=>{
 //admin submit
 document.querySelector('.aSubmit').addEventListener('click', async ()=>{
     let adminRes=await adminPost(uInput[1].value)
-    if(adminRes.error) window.location.href='http://127.0.0.1:5500/index.html';
+    if(adminRes.error) window.location.href='https://mem-only-odin-bvk.netlify.com/index.html';
     else{
         aError.classList.remove('rem')
         setTimeout(()=>aError.classList.add('rem'), 4000);
