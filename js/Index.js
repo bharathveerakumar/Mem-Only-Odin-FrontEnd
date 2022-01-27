@@ -11,6 +11,8 @@ inputs=document.querySelectorAll('input'),
 loader=document.querySelector('.loader')
 
 
+let now=new Date(Date.now()+3000).toUTCString()
+console.log(now)
 
 
 //Getting Data for Home page
