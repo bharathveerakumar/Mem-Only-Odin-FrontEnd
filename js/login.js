@@ -23,7 +23,7 @@ btn.addEventListener('click', async (e)=>{
         })
         if(loginRes){
             let now=new Date(Date.now()+3000).toUTCString()
-            document.cookie="token="+loginRes.token+";"+"expires:"+now+"; path=/;"
+            document.cookie="token="+loginRes.token+";"+"expires:Fri, 31 Dec 9999 23:59:59 GMT;"
             window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
         }
     }
