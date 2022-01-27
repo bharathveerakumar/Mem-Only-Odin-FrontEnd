@@ -10,14 +10,18 @@ navBar=document.querySelector('nav')
 // Getting the Admin Data of users...
 const adminDat=await adminData();
 
+
 if(!adminDat.error) window.location.href='http://127.0.0.1:5500/index.html'
 
+//Home page redirection...
 navBar.addEventListener('click', ()=>{
     window.location.href='http://127.0.0.1:5500/index.html';
 })
 
 navBar.innerHTML+=`<h2 class="userTitle">Hi <u>${ adminDat.user.nickname }</u></h2>`
 
+
+//Rendering content for update and delete operation in admin page...
 adminDat.result.forEach((e)=>{
     e.posts.forEach((e1)=>{
         content.innerHTML+=`<div class="post">
@@ -33,6 +37,8 @@ adminDat.result.forEach((e)=>{
     })
 })
 
+
+//show pop up window for update...
 let flag=0, id;
 document.querySelectorAll('.updateb').forEach((e)=>{
     e.addEventListener('click', ()=>{
@@ -42,6 +48,7 @@ document.querySelectorAll('.updateb').forEach((e)=>{
     })
 })
 
+//submitting the updated one to server...
 document.querySelector('.updateS').addEventListener('click', async ()=>{
     updateBox.classList.remove('updateFlex')
     const body={
@@ -53,10 +60,10 @@ document.querySelector('.updateS').addEventListener('click', async ()=>{
     window.location.href='http://127.0.0.1:5500/admin.html'
 })
 
-
 document.querySelector('.updateBox img').addEventListener('click', ()=>{
     updateBox.classList.remove('updateFlex')
 })
+
 
 inputs.forEach((e)=>{
     e.addEventListener('change', ()=>{
@@ -65,6 +72,8 @@ inputs.forEach((e)=>{
     })
 })
 
+
+//sending request to server for deletion of documents...
 document.querySelectorAll('.delete').forEach((e1)=>{
     e1.addEventListener('click', (e)=>{
         deletePost(e1.dataset['id'])

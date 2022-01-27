@@ -1,4 +1,4 @@
-import { homeData, adminUpdate } from './GetData.js'
+import { homeData } from './GetData.js'
 import { messPost, memPost, adminPost } from './PostData.js'
 
 const navBar=document.querySelector('nav')
@@ -28,6 +28,7 @@ inputs.forEach((e)=>{
     })
 })
 
+
 //Rendering and Checking the user account status for rendering the data according to it
 if(hData.user=="not"){
     const loginLink=document.createElement('a')
@@ -56,6 +57,7 @@ else{
     else if(hData.user.status=='MEMBER'){
         navBar.appendChild(adminLink);
         adminLink.addEventListener('click', ()=>{
+            upgrade[1].style.top=`${ scrollY+150 }px`
             upgrade[1].classList.toggle('upgradeFlex')
         });
         memRender();
@@ -68,6 +70,7 @@ else{
     }
 
 }
+
 
 // Rendering content for user who didn't logged in
 function msgRender(){
@@ -82,6 +85,7 @@ function msgRender(){
     })
 }
 
+
 // Rendering content for MEMBERS
 function memRender(){
     const msgs=hData.result;
@@ -91,7 +95,7 @@ function memRender(){
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title">${ e.title }</div>
                             <div class="content"> ${ e.body } </div>
-                            <div class="da"><h3>${ e.user_info[0].nickname }</h3><h3>${ e.date }</h3></div>`
+                            <div class="da"><h3>${ e.user_info[0].nickname }</h3><h3>${ e.date.split('T')[0] }</h3></div>`
         msgCont.appendChild(msgBox)
     })
 }
@@ -113,6 +117,7 @@ document.addEventListener('scroll', (ev)=>{
 })
 // **** //
 
+
 // post button
 const button=document.querySelector('button'),
 uInput=document.querySelectorAll('.upgrade input'),
@@ -126,9 +131,9 @@ button.addEventListener('click', ()=>{
     post.classList.toggle('active')
 })
 
+
 //sending content to the server for posting a message...
 submit.addEventListener('click', ()=>{
-    console.log(input[1].value)
     const body={
         "title":input[0].value,
         "body":input[1].value
@@ -142,7 +147,6 @@ submit.addEventListener('click', ()=>{
 //member submit
 document.querySelector('.mSubmit').addEventListener('click', async ()=>{
     let adminRes=await memPost(uInput[0].value)
-    console.log(adminRes)
     if(adminRes.error) window.location.href='http://127.0.0.1:5500/index.html';
     else{
         console.log(mError)
