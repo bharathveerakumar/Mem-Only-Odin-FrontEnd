@@ -23,7 +23,7 @@ btn.addEventListener('click', async (e)=>{
         })
         if(loginRes){
             document.cookie=`token=${ loginRes.token }`
-            window.location.href='http://127.0.0.1:5500/index.html'
+            window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
         }
     }
 })
