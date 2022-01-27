@@ -11,8 +11,7 @@ inputs=document.querySelectorAll('input'),
 loader=document.querySelector('.loader')
 
 
-let now=new Date(Date.now()+3000).toUTCString()
-console.log(now)
+document.cookie="token="+document.cookie.split('=')[1]+";expires="+new Date(Date.now()+86400000).toUTCString();
 
 
 //Getting Data for Home page
