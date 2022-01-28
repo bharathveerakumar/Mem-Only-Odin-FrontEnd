@@ -59,7 +59,7 @@ body::-webkit-scrollbar-track{
 
 body::-webkit-scrollbar-thumb{
     width: 15px;
-    background-color: rgba(122, 65, 0, 0.89);
+    background-color: rgba(0, 255, 242, 0.89);
     border-radius: 10px;
     backdrop-filter: blur(10px);
 }

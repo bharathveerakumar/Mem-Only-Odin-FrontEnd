@@ -59,7 +59,7 @@ body::-webkit-scrollbar-track{
 
 body::-webkit-scrollbar-thumb{
     width: 15px;
-    background-color: rgba(4, 255, 213, 0.89);
+    background-color: rgba(154, 5, 184, 0.89);
     border-radius: 10px;
     backdrop-filter: blur(10px);
 }
@@ -253,7 +253,7 @@ button{
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    background-color: rgba(52, 255, 228, 0.753);
+    background-color: rgba(231, 52, 255, 0.753);
 }
 
 .updateBox img{
