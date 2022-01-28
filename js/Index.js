@@ -46,6 +46,13 @@ else{
     memLink.innerHTML='Member', memLink.className='memLink g';
     const adminLink=document.createElement('button')
     adminLink.innerHTML='Admin', adminLink.className='adminLink g';
+    navBar.innerHTML+='<button class="logout">Logout</button>'
+
+    //Logout listener
+    navBar.querySelector('.logout').addEventListener('click', ()=>{
+        document.cookie="token=0;"
+    })
+
 
     if(hData.user.status=='IN'){
         navBar.appendChild(memLink), navBar.appendChild(adminLink)
