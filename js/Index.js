@@ -107,7 +107,7 @@ function memRender(){
         msgBox.className='msgbox';
         msgBox.innerHTML+=` <div class="title">${ e.title }</div>
                             <div class="content"> ${ e.body } </div>
-                            <div class="da"><h3 class="dat"><img src = "../assets/${e.user_info[0].logo}.jpeg" alt="My Happy SVG">${ e.user_info[0].nickname }</h3><h3>${ e.date.split('T')[0] }</h3></div>`
+                            <div class="da"><img src = "../assets/${e.user_info[0].logo}.jpeg"><h3 class="dat">${ e.user_info[0].nickname }</h3><h3>${ e.date.split('T')[0] }</h3></div>`
         msgCont.appendChild(msgBox)
     })
 }
