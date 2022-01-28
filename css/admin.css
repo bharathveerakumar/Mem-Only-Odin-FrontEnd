@@ -195,16 +195,19 @@ nav img{
 }
 
 .user{
-    text-align: right;
     width: 100%;
     font-size: 20px;
     color: rgb(42, 33, 80);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 
 .user img{
     width: 50px;
     height: 50px;
     border-radius: 20px;
+    margin-left: 10px;
 }
 
 .post p, .post h3, .post h4, .post .update, .post button{
