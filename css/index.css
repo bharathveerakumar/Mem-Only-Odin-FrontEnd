@@ -403,7 +403,7 @@ textarea:focus~label{
         height: 25px;
     }
     .msgbox{
-        transform: scaleX(0);
+        transform: translateX(0px);
         transition: none;
     }
 }
