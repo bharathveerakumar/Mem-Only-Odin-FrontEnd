@@ -51,6 +51,7 @@ else{
     //Logout listener
     navBar.querySelector('.logout').addEventListener('click', ()=>{
         document.cookie="token=0;"
+        window.location.href='https://mem-only-odin-bvk.netlify.com/index.html'
     })
 
 
