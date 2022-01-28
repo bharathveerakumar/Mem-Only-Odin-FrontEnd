@@ -94,7 +94,6 @@ function msgRender(){
 // Rendering content for MEMBERS
 function memRender(){
     const msgs=hData.result;
-    console.log(msgs)
     msgs.forEach((e)=>{
         const msgBox=document.createElement('div')
         msgBox.className='msgbox';

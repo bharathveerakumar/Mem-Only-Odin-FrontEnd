@@ -206,7 +206,7 @@ nav img{
 .user img{
     width: 50px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .post p, .post h3, .post h4, .post .update, .post button{
