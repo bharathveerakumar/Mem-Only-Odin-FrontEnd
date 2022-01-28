@@ -47,8 +47,6 @@ body{
     align-items: center;
     justify-content: space-evenly;
     background: linear-gradient(to right, #0cebeb, #20e3b2, #29ffc6);
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 body::-webkit-scrollbar{
