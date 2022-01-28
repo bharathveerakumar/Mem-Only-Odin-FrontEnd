@@ -402,4 +402,8 @@ textarea:focus~label{
         width: 25px;
         height: 25px;
     }
+    .msgbox{
+        transform: scaleX(0);
+        transition: none;
+    }
 }
