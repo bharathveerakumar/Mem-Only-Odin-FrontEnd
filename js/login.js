@@ -19,6 +19,7 @@ btn.addEventListener('click', async (e)=>{
     if(username.value.length&&password.value.length){
         loader.style.display='flex'
         const loginRes=await loginPost(username.value, password.value).catch((e)=>{
+            loader.style.display='none'
             err.style.display='block';
         })
         if(loginRes){
