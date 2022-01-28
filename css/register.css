@@ -12,7 +12,7 @@ body{
     justify-content: space-evenly;
     width: 100vw;
     height: 100vh;
-    background-image: url('../assets/bubble.jpg');
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
     background-size: cover;
 }
 
