@@ -8,8 +8,8 @@ navBar=document.querySelector('nav'),
 loader=document.querySelector('.loader')
 
 
-loader.style.display='flex'
 // Getting the Admin Data of users...
+loader.style.display='flex'
 const adminDat=await adminData();
 loader.style.display='none'
 
