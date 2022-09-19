@@ -1,4 +1,4 @@
-const home='https://35.86.196.90:5001/'
+const home='http://35.86.196.90:5001/'
 
 
 export const homeData=async ()=>{
@@ -14,7 +14,7 @@ export const homeData=async ()=>{
  
 
 export const adminData=async ()=>{
-    let adminDat=await fetch('https://35.86.196.90:5001/admin', {
+    let adminDat=await fetch('http://35.86.196.90:5001/admin', {
         method:'GET',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`

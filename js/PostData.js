@@ -1,6 +1,6 @@
 
 export const loginPost=async (username, password)=>{
-    let login=await fetch('https://35.86.196.90:5001/login', {
+    let login=await fetch('http://35.86.196.90:5001/login', {
         method:'POST',
         mode:'cors',
         headers:{
@@ -17,7 +17,7 @@ export const loginPost=async (username, password)=>{
 }
 
 export const regPost=async (body)=>{
-    let register=await fetch('https://35.86.196.90:5001/register', {
+    let register=await fetch('http://35.86.196.90:5001/register', {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -35,7 +35,7 @@ export const regPost=async (body)=>{
 }
 
 export const messPost=async (body)=>{
-    let mesPost=await fetch('https://35.86.196.90:5001/post', {
+    let mesPost=await fetch('http://35.86.196.90:5001/post', {
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -51,7 +51,7 @@ export const messPost=async (body)=>{
 }
 
 export const memPost=async (member)=>{
-    let memData=await fetch('https://35.86.196.90:5001/member', {
+    let memData=await fetch('http://35.86.196.90:5001/member', {
         method:'POST',
         headers:{
             'Content-Type':'application/json',
@@ -67,7 +67,7 @@ export const memPost=async (member)=>{
 
 
 export const updatePost=async (body)=>{ 
-    let updateRes=await fetch('https://35.86.196.90:5001/update', {
+    let updateRes=await fetch('http://35.86.196.90:5001/update', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
@@ -78,7 +78,7 @@ export const updatePost=async (body)=>{
 }
 
 export const deletePost=async (id)=>{
-    let deleteRes=await fetch('https://35.86.196.90:5001/delete', {
+    let deleteRes=await fetch('http://35.86.196.90:5001/delete', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
@@ -89,7 +89,7 @@ export const deletePost=async (id)=>{
 }
 
 export const adminPost=async (admin)=>{
-    let adminRes=await fetch('https://35.86.196.90:5001/adminLogin', {
+    let adminRes=await fetch('http://35.86.196.90:5001/adminLogin', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
