@@ -1,6 +1,6 @@
 
 export const loginPost=async (username, password)=>{
-    let login=await fetch('https://mem-only-odin-bvk.herokuapp.com/login', {
+    let login=await fetch('https://35.86.196.90:5001/login', {
         method:'POST',
         mode:'cors',
         headers:{
@@ -17,7 +17,7 @@ export const loginPost=async (username, password)=>{
 }
 
 export const regPost=async (body)=>{
-    let register=await fetch('https://mem-only-odin-bvk.herokuapp.com/register', {
+    let register=await fetch('https://35.86.196.90:5001/register', {
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -35,7 +35,7 @@ export const regPost=async (body)=>{
 }
 
 export const messPost=async (body)=>{
-    let mesPost=await fetch('https://mem-only-odin-bvk.herokuapp.com/post', {
+    let mesPost=await fetch('https://35.86.196.90:5001/post', {
         method:"POST",
         headers:{
             "Content-Type":"application/json",
@@ -51,7 +51,7 @@ export const messPost=async (body)=>{
 }
 
 export const memPost=async (member)=>{
-    let memData=await fetch('https://mem-only-odin-bvk.herokuapp.com/member', {
+    let memData=await fetch('https://35.86.196.90:5001/member', {
         method:'POST',
         headers:{
             'Content-Type':'application/json',
@@ -67,7 +67,7 @@ export const memPost=async (member)=>{
 
 
 export const updatePost=async (body)=>{ 
-    let updateRes=await fetch('https://mem-only-odin-bvk.herokuapp.com/update', {
+    let updateRes=await fetch('https://35.86.196.90:5001/update', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
@@ -78,7 +78,7 @@ export const updatePost=async (body)=>{
 }
 
 export const deletePost=async (id)=>{
-    let deleteRes=await fetch('https://mem-only-odin-bvk.herokuapp.com/delete', {
+    let deleteRes=await fetch('https://35.86.196.90:5001/delete', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
@@ -89,7 +89,7 @@ export const deletePost=async (id)=>{
 }
 
 export const adminPost=async (admin)=>{
-    let adminRes=await fetch('https://mem-only-odin-bvk.herokuapp.com/adminLogin', {
+    let adminRes=await fetch('https://35.86.196.90:5001/adminLogin', {
         method:'POST',
         headers:{
             'authorization':`${ document.cookie.split('=')[1] }`,
